@@ -1,0 +1,14 @@
+services:
+  web:
+    build: 
+      context: .
+    ports:
+      - "80:80"
+    environment:
+      TZ: "Asia/Tokyo"
+    volumes:
+      - ./html:/usr/share/nginx/html
+      - ./conf.d:/etc/nginx/conf.d
+      - ./log:/var/log/nginx
+    extra_hosts:
+      - host.docker.internal:host-gateway
